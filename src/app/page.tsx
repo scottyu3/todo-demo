@@ -30,15 +30,15 @@ function getStage(task: Task, now: number): PlantStage {
 function createDemoTasks(): Task[] {
   const now = Date.now();
   return [
-    { id: crypto.randomUUID(), text: "Review pull request", createdAt: now - 30 * 60 * 1000, completedAt: null },
-    { id: crypto.randomUUID(), text: "Write unit tests", createdAt: now - 90 * 60 * 1000, completedAt: null },
-    { id: crypto.randomUUID(), text: "Update dependencies", createdAt: now - 3 * 60 * 60 * 1000, completedAt: null },
-    { id: crypto.randomUUID(), text: "Design new landing page", createdAt: now - 5 * 60 * 60 * 1000, completedAt: null },
-    { id: crypto.randomUUID(), text: "Deploy staging build", createdAt: now - 4 * 60 * 60 * 1000, completedAt: now - 2 * 60 * 60 * 1000 },
-    { id: crypto.randomUUID(), text: "Fix login bug", createdAt: now - 6 * 60 * 60 * 1000, completedAt: now - 1 * 60 * 60 * 1000 },
-    { id: crypto.randomUUID(), text: "Refactor auth middleware", createdAt: now - 14 * 60 * 60 * 1000, completedAt: null },
-    { id: crypto.randomUUID(), text: "Write API documentation", createdAt: now - 18 * 60 * 60 * 1000, completedAt: null },
-    { id: crypto.randomUUID(), text: "Clean up old branches", createdAt: now - 30 * 60 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Book dentist appointment", createdAt: now - 30 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Review Q2 budget proposal", createdAt: now - 90 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Plan weekend camping trip", createdAt: now - 3 * 60 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Prep slides for Monday standup", createdAt: now - 5 * 60 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Submit expense report", createdAt: now - 4 * 60 * 60 * 1000, completedAt: now - 2 * 60 * 60 * 1000 },
+    { id: crypto.randomUUID(), text: "Fix the garage door sensor", createdAt: now - 6 * 60 * 60 * 1000, completedAt: now - 1 * 60 * 60 * 1000 },
+    { id: crypto.randomUUID(), text: "Renew car insurance", createdAt: now - 14 * 60 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Reply to Mom's email", createdAt: now - 18 * 60 * 60 * 1000, completedAt: null },
+    { id: crypto.randomUUID(), text: "Clean out the garage", createdAt: now - 30 * 60 * 60 * 1000, completedAt: null },
   ];
 }
 
