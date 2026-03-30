@@ -1,1 +1,85 @@
 @import "tailwindcss";
+
+:root {
+  --soil-dark: #1A0F08;
+  --soil: #2C1810;
+  --soil-light: #3D2B1F;
+  --soil-lighter: #4E3C2E;
+  --cream: #E8DCC8;
+  --cream-dim: #B8A890;
+  --seed: #8B7355;
+  --sprout: #6BBF59;
+  --sprout-dark: #4A8F3D;
+  --bloom-orange: #FF8C42;
+  --bloom-pink: #E85D75;
+  --bloom-glow: #FBBF24;
+  --wilt: #9B8B3D;
+  --wilt-dark: #6B5B2D;
+  --rot: #3D2F2F;
+  --rot-dark: #2A1F1F;
+  --rot-bug: #5A4A3A;
+}
+
+body {
+  background: linear-gradient(180deg, var(--soil) 0%, var(--soil-dark) 100%);
+  color: var(--cream);
+  min-height: 100vh;
+}
+
+/* Soil texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Plant animations */
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px var(--bloom-glow)); }
+  50% { filter: drop-shadow(0 0 14px var(--bloom-glow)); }
+}
+
+@keyframes wilt-droop {
+  0%, 100% { transform: rotate(8deg) scaleY(0.95); }
+  50% { transform: rotate(10deg) scaleY(0.93); }
+}
+
+@keyframes bug-crawl {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-2px, -4px); }
+  75% { transform: translate(-4px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes bloom-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes uproot {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(-30px) rotate(15deg); opacity: 0; }
+}
+
+@keyframes seed-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.plant-seed { animation: seed-pulse 3s ease-in-out infinite; }
+.plant-sprout { animation: sway 4s ease-in-out infinite; transform-origin: bottom center; }
+.plant-bloom { animation: pulse-glow 3s ease-in-out infinite; }
+.plant-wilt { animation: wilt-droop 5s ease-in-out infinite; transform-origin: bottom center; }
+.plant-rot .bug { animation: bug-crawl 2s ease-in-out infinite; }
+.plant-uproot { animation: uproot 0.5s ease-out forwards; }

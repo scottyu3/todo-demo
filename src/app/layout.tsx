@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: "Todo App",
-  description: "A simple todo app built by an autonomous agent team",
+  title: "Decompose — Your Tasks Are Alive",
+  description: "A todo app where tasks grow, bloom, or rot. Tend your garden or watch it die.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${geist.className} bg-gray-950 text-white min-h-screen antialiased`}>
+    <html lang="en">
+      <body className={`${inter.variable} ${caveat.variable} min-h-screen antialiased`} style={{ fontFamily: "var(--font-inter), sans-serif" }}>
         {children}
       </body>
     </html>
